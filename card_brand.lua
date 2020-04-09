@@ -69,7 +69,7 @@ function CardBrand:_compareOtherBrandWithSameType( otherBrand )
 end
 
 function CardBrand:getDesc()
-	local str = const.CardTypeCnDesc[self.m_type]..":"
+	local str = const.CardTypeDesc[self.m_type]..":"
 	for _,v in ipairs(self.m_cards or {}) do
 		str = str .. v:getDesc().." "
 	end

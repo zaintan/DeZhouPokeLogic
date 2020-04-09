@@ -1,3 +1,6 @@
+
+global_language = 'En'-- 'En: English  Cn: Chinese'
+
 function class(super, autoConstructSuper)
     local classType = {};
     classType.autoConstructSuper = autoConstructSuper or (autoConstructSuper == nil);

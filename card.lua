@@ -67,25 +67,17 @@ function Card:compareByValueColorSpecial(otherCard)
 	return self:getValue() > otherCard:getValue()
 end
 
-function Card:getDesc(en)
+function Card:getDesc()
 	local valueDesc = const.CardValueDesc[self:getValue()]
 	if not valueDesc then 
 		return "unknown value"
 	end 
 	--
-	if en then 
-		local desc = const.CardColorDescEn[self:getColor()]
-		if not desc then 
-			return "unknown color"
-		end 
-		return valueDesc..desc
-	else
-		local desc = const.CardColorDescCn[self:getColor()]
-		if not desc then 
-			return "unknown color"
-		end 
-		return desc..valueDesc
+	local desc = const.CardColorDesc[self:getColor()]
+	if not desc then 
+		return "unknown color"
 	end 
+	return valueDesc..desc
 end
 
 --function Card:equalColor( otherCard )

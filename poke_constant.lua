@@ -20,18 +20,18 @@ M.CardColor = {
 	Spade   = 3,--0x31,0x3D  黑桃
 }
 
-M.CardColorDescEn = {
+local CardColorDescEn = {
 	[0] = "d",
 	[1] = "c",
 	[2] = "h",
 	[3] = "s",		
 }
 
-M.CardColorDescCn = {
-	[0] = "方片",
-	[1] = "梅花",
-	[2] = "红桃",
-	[3] = "黑桃",		
+local CardColorDescCn = {
+	[0] = "方",
+	[1] = "梅",
+	[2] = "红",
+	[3] = "黑",		
 }
 
 M.CardValueDesc = {
@@ -50,7 +50,7 @@ M.CardValueDesc = {
 	[13] = "K",				
 }
 
-M.CardTypeEnDesc = {
+local CardTypeDescEn = {
 	[1] = "HighCard",
 	[2] = "OnePairs",
 	[3] = "TwoPairs",
@@ -63,7 +63,7 @@ M.CardTypeEnDesc = {
 	[10] = "RoyalFlush",		
 }
 
-M.CardTypeCnDesc = {
+local CardTypeDescCn = {
 	[1] = "高牌",
 	[2] = "一对",
 	[3] = "两对",
@@ -75,4 +75,13 @@ M.CardTypeCnDesc = {
 	[9] = "同花顺",
 	[10] = "皇家同花顺",		
 }
+
+if global_language and global_language == "En" then 
+	M.CardColorDesc = CardColorDescEn
+	M.CardTypeDesc  = CardTypeDescEn
+else 
+	M.CardColorDesc = CardColorDescCn
+	M.CardTypeDesc  = CardTypeDescCn
+end 
+
 return M

@@ -84,7 +84,7 @@ local function make_test(personNum)
 
 	local result = {}
 	for i=1,personNum do
-		local name  = "p"..i
+		local name  = "robert"..i
 		local cards = {}
 		for _,v in ipairs(hand_cards[i]) do
 			table.insert(cards,  v)
@@ -112,10 +112,25 @@ end
 local function dump_result( result )
 	print("==========test begin==========")
 
+	local handDesc,CommonDesc,resultDesc, playerDesc = nil
+
+	if global_language and global_language == "En" then 
+		handDesc   = "hand:"
+		CommonDesc = "common:"
+		resultDesc = "result:"
+		playerDesc = "player "
+	else 
+		handDesc   = "手牌:"
+		CommonDesc = "公牌:"
+		resultDesc = "成牌:"
+		playerDesc = "玩家 "
+	end 
+
+
 	for i,v in ipairs(result or {}) do
-		print("公牌:"..dump_cards_arr(v.common))
-		print("玩家 "..v.name .. " 手牌:"..dump_cards_arr(v.hand))
-		print("成牌:".. v.brand:getDesc())
+		print(CommonDesc..dump_cards_arr(v.common))
+		print(playerDesc..v.name .." ".. handDesc..dump_cards_arr(v.hand))
+		print(resultDesc.. v.brand:getDesc())
 		print("")
 	end
 	print("==========test begin==========")
